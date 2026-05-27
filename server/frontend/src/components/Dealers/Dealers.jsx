@@ -43,7 +43,13 @@ const Dealers = () => {
     }
   }
   useEffect(() => {
-    get_dealers();
+    const params = new URLSearchParams(window.location.search);
+    const state = params.get("state");
+    if (state) {
+      filterDealers(state);
+    } else {
+      get_dealers();
+    }
   },[]);  
 
 
