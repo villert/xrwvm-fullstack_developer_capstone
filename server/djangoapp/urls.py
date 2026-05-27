@@ -24,7 +24,7 @@ urlpatterns = [
 
     # cars and sentiment
     path(route='get-carmakes', view=views.get_all_carmakes, name='car_makes'),
-    path(route='get_cars', view=views.get_all_carmakes, name='car_makes_legacy'),
+    path(route='get_cars', view=views.get_cars, name='get_cars'),
     path(route='analyze-review', view=views.analyze_review, name='analyze_review'),
     path(route='add_review', view=views.add_review, name='add_review'),
 

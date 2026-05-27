@@ -131,6 +131,21 @@ def get_all_carmakes(request):
     return JsonResponse({'status': 200, 'cars': cars, 'CarModels': car_models})
 
 
+def get_cars(request):
+    data = _load_data('car_records.json')
+    cars = data.get('cars', [])
+    car_models = [
+        {
+            'CarMake': car.get('make', ''),
+            'CarModel': car.get('model', ''),
+            'CarYear': car.get('year', ''),
+            'CarType': car.get('bodyType', ''),
+        }
+        for car in cars
+    ]
+    return JsonResponse({'CarModels': car_models})
+
+
 def analyze_review(request):
     # Accept GET param 'text' or JSON POST with {'text': '...'}
     text = ''
